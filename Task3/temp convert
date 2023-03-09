@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+    <style>
+      /* Add styles for the body */
+      body {
+        background-image: url(https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png);
+        background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        text-align: center;
+        padding: 50px;
+      }
+
+      /* Add styles for the header */
+      header {
+        background-color: #333;
+        color: white;
+        padding: 30px;
+        margin-bottom: 20px;
+
+      }
+
+      /* Add styles for the main container */
+      #container {
+        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+
+    }
+     /* Add styles for the button */
+      button {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin: 8px;
+}
+
+      /* Add styles for the inputs and select */
+      input[type="number"] {
+  font-size: 16px;
+  padding: 8px;
+  margin: 8px;
+}
+
+select {
+  font-size: 16px;
+  padding: 8px;
+  margin: 8px;
+}
+
+#output {
+  margin-top: 16px;
+}
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Temperature Converter</h1>
+    </header>
+    <div class="container">
+      <input type="number" id="input-temperature" placeholder="Enter temperature">
+      <select id="input-unit">
+        <option value="celsius">°C to °F</option>
+        <option value="fahrenheit">°F to °C</option>
+        <option value="Kelvin">°C to °K</option>
+      </select>
+      <button id="convert-button">Convert</button>
+      <div id="output">
+        <p id="output-unit"></p>
+      </div>
+    </div>
+    
+      </main>
+    <script>
+    const convertBtn = document.querySelector("#convert-button");
+    const inputTemp = document.querySelector("#input-temperature");
+    const unit = document.querySelector("#input-unit");
+    const output = document.querySelector("#output-unit");
+    
+    convertBtn.addEventListener("click", function() {
+      let inputValue = inputTemp.value;
+      let selectedUnit = unit.value;
+      let convertedTemp;
+      
+      console.log(inputValue);
+      console.log(selectedUnit);
+      
+      if (selectedUnit === "celsius") {
+        convertedTemp = (inputValue * 9/5) + 32;
+        output.innerHTML = `${inputValue}°C is equal to ${convertedTemp}°F`;
+      } else if (selectedUnit === "fahrenheit") {
+        convertedTemp = (inputValue - 32) * 5/9;
+        output.innerHTML = `${inputValue}°F is equal to ${convertedTemp}°C`;
+      }else {
+         convertedTemp=(inputValue - 32) * 5 /9 + 273.15;
+         output.innerHTML = `${inputValue}°C is equal to ${convertedTemp}°K`;
+      }
+        
+        
+      
+      
+    });
+  </script>
+</body>
+</html>
+
+
+
+        
